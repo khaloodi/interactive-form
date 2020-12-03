@@ -6,7 +6,6 @@ const otherRole = document.getElementById("other-job-role")
 
 otherRole.style.display = "none"
 jobRole.addEventListener("change", e => {
-    console.log(e.target.value)
     if (e.target.value === "other") {
         otherRole.style.display = "inline-block"
     } else {
