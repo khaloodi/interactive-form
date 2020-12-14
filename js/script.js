@@ -15,19 +15,33 @@ jobRole.addEventListener("change", e => {
     }
 })
 
-// only color options for selected design
+// only show color options for the selected design
 const design = document.getElementById("design")
 const color = document.getElementById("shirt-colors")
 color.style.display = "none"
-
-const colorOptions = document.querySelectorAll('[data-theme]')
+const themeOptions = document.querySelectorAll("select#color option")
+console.log(themeOptions)
 
 design.addEventListener("change", e => {
+    color.style.display = "inline-block"
+
     if (e.target.value === "js puns") {
-        color.style.display = "inline-block"
-        return null
+        console.log(e.target.value)
+        for (let i = 1; i < themeOptions.length; i++) {
+            if (themeOptions[i].dataset.theme !== "js puns") {
+                themeOptions[i].style.display = "none"
+            } else {
+                themeOptions[i].style.display = ""
+            }
+        }
     } else if (e.target.value === "heart js") {
-        color.style.display = "inline-block"
-        return null
+        console.log(e.target.value)
+        for (let j = 1; j < themeOptions.length; j++) {
+            if (themeOptions[j].dataset.theme !== "heart js") {
+                themeOptions[j].style.display = "none"
+            } else {
+                themeOptions[j].style.display = ""
+            }
+        }
     }
 })
