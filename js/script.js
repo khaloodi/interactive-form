@@ -70,3 +70,7 @@ paypal.style.display = "none"
 bitcoin.style.display = "none"
 
 payment.value = "credit-card"
+payment.children[1].selected = true
+payment.addEventListener("change", e => {
+    console.log(e.target.value)
+})
