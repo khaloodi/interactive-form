@@ -48,9 +48,16 @@ design.addEventListener("change", e => {
 
 // total up the "Register for Activities" section
 const activities = document.getElementById('activities')
-const total = document.getElementsById('activities-cost')
+let total = document.getElementById('activities-cost')
 
 let totalCost = 0
 activities.addEventListener("change", e => {
+    let cost = +e.target.getAttribute('data-cost')
 
+    if (e.target.checked) {
+        totalCost += cost
+    } else if (e.target.checked === false) {
+        totalCost -= cost
+    }
+    total.innerHTML = `Total: $ ${totalCost}`
 })
