@@ -72,5 +72,17 @@ bitcoin.style.display = "none"
 payment.value = "credit-card"
 payment.children[1].selected = true
 payment.addEventListener("change", e => {
-    console.log(e.target.value)
+    if (e.target.value === 'paypal') {
+        paypal.style.display = ""
+        creditCard.style.display = "none"
+        bitcoin.style.display = "none"
+    } else if (e.target.value === 'credit-card') {
+        paypal.style.display = "none"
+        creditCard.style.display = ""
+        bitcoin.style.display = "none"
+    } else if (e.target.value === 'bitcoin') {
+        paypal.style.display = "none"
+        creditCard.style.display = "none"
+        bitcoin.style.display = ""
+    }
 })
