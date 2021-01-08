@@ -45,3 +45,12 @@ design.addEventListener("change", e => {
         }
     }
 })
+
+// total up the "Register for Activities" section
+const activities = document.getElementById('activities')
+const total = document.getElementsById('activities-cost')
+
+let totalCost = 0
+activities.addEventListener("change", e => {
+
+})
