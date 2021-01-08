@@ -20,13 +20,11 @@ const design = document.getElementById("design")
 const color = document.getElementById("shirt-colors")
 color.style.display = "none"
 const themeOptions = document.querySelectorAll("select#color option")
-console.log(themeOptions)
 
 design.addEventListener("change", e => {
     color.style.display = "inline-block"
 
     if (e.target.value === "js puns") {
-        console.log(e.target.value)
         for (let i = 1; i < themeOptions.length; i++) {
             if (themeOptions[i].dataset.theme !== "js puns") {
                 themeOptions[i].style.display = "none"
@@ -61,3 +59,14 @@ activities.addEventListener("change", e => {
     }
     total.innerHTML = `Total: $ ${totalCost}`
 })
+
+// payment info section
+const payment = document.getElementById('payment')
+const creditCard = document.getElementById('credit-card')
+const paypal = document.getElementById('paypal')
+const bitcoin = document.getElementById('bitcoin')
+
+paypal.style.display = "none"
+bitcoin.style.display = "none"
+
+payment.value = "credit-card"
