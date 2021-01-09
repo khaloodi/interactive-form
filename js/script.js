@@ -119,6 +119,13 @@ function paymentValidator() {
     return paymentIsValid
 }
 
+function zipcodeValidator() {
+    const zipcode = document.getElementById('zip').value
+    const zipcodeIsValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode)
+    console.log((`Zipcode value is: ${zipcode}`))
+    return zipcodeIsValid
+}
+
 form.addEventListener('submit', e => {
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
@@ -134,6 +141,10 @@ form.addEventListener('submit', e => {
 
     if (!paymentValidator()) {
         console.log('Activities validator prevented submission')
+    }
+
+    if (!zipcodeValidator()) {
+        console.log('Zipcode validator prevented submission')
     }
 
     e.preventDefault()
