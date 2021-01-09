@@ -113,6 +113,12 @@ function activitiesValidator() {
     return activitiesIsValid
 }
 
+function paymentValidator() {
+    const paymentIsValid = payment.value === 'credit-card' ? true : false
+    console.log((`Payment section validation test evaluates to ${paymentIsValid}`))
+    return paymentIsValid
+}
+
 form.addEventListener('submit', e => {
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
@@ -123,6 +129,10 @@ form.addEventListener('submit', e => {
     }
 
     if (!activitiesValidator()) {
+        console.log('Activities validator prevented submission')
+    }
+
+    if (!paymentValidator()) {
         console.log('Activities validator prevented submission')
     }
 
