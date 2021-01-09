@@ -104,9 +104,8 @@ function emailValidator() {
 }
 
 form.addEventListener('submit', e => {
-    e.preventDefault()
-
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
     }
+    e.preventDefault()
 })
