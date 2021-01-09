@@ -86,3 +86,5 @@ payment.addEventListener("change", e => {
         bitcoin.style.display = ""
     }
 })
+
+// form validation
