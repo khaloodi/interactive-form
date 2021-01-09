@@ -126,6 +126,15 @@ function zipcodeValidator() {
     return zipcodeIsValid
 }
 
+function cvvValidator() {
+    const cvv = document.getElementById('cvv').value
+    const cvvIsValid = /^[0-9]{3,4}$/.test(cvv)
+    console.log((`CVV value is: ${cvv}`))
+    return cvvIsValid
+}
+
+
+
 form.addEventListener('submit', e => {
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
@@ -145,6 +154,10 @@ form.addEventListener('submit', e => {
 
     if (!zipcodeValidator()) {
         console.log('Zipcode validator prevented submission')
+    }
+
+    if (!cvvValidator()) {
+        console.log('CVV validator prevented submission')
     }
 
     e.preventDefault()
