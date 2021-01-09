@@ -107,6 +107,12 @@ function emailValidator() {
     return emailIsValid
 }
 
+function activitiesValidator() {
+    const activitiesIsValid = totalCost > 0
+    console.log((`Activities section validation test evaluates to ${activitiesIsValid}`))
+    return activitiesIsValid
+}
+
 form.addEventListener('submit', e => {
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
@@ -114,6 +120,10 @@ form.addEventListener('submit', e => {
 
     if (!emailValidator()) {
         console.log('Email validator prevented submission')
+    }
+
+    if (!activitiesValidator()) {
+        console.log('Activities validator prevented submission')
     }
 
     e.preventDefault()
