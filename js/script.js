@@ -88,3 +88,25 @@ payment.addEventListener("change", e => {
 })
 
 // form validation
+const form = document.querySelector('form')
+const email = document.getElementById('email')
+
+function nameValidator() {
+    const nameValue = name.value
+    console.log('Name value is: ', `${nameValue}`)
+
+    const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameValue)
+    return nameIsValid
+}
+
+function emailValidator() {
+
+}
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    if (!nameValidator()) {
+        console.log('Name validator prevented submission')
+    }
+})
