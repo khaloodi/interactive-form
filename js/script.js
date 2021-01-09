@@ -100,12 +100,21 @@ function nameValidator() {
 }
 
 function emailValidator() {
+    const emailValue = email.value
+    console.log('Email value is: ', `${emailValue}`)
 
+    const emailIsValid = /^[^@]+@[^@.]+\.[a-z]+$/i.test(emailValue)
+    return emailIsValid
 }
 
 form.addEventListener('submit', e => {
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
     }
+
+    if (!emailValidator()) {
+        console.log('Email validator prevented submission')
+    }
+
     e.preventDefault()
 })
