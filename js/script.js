@@ -136,8 +136,16 @@ function cvvValidator() {
 
 
 form.addEventListener('submit', e => {
+    e.preventDefault()
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
+        name.parentElement.classList.add("not-valid")
+        name.parentElement.classList.remove("valid")
+        name.parentElement.lastElementChild.style.display = ""
+    } else if (nameValidator()) {
+        name.parentElement.classList.add("valid")
+        name.parentElement.classList.remove("not-valid")
+        name.parentElement.lastElementChild.style.display = "none"
     }
 
     if (!emailValidator()) {
@@ -160,5 +168,17 @@ form.addEventListener('submit', e => {
         console.log('CVV validator prevented submission')
     }
 
-    e.preventDefault()
+    // e.preventDefault()
 })
+
+// accessibility
+document.querySelectorAll('#activities input').forEach(cb => {
+    cb.addEventListener('focus', e => cb.parentElement.classList.add('focus'));
+
+    cb.addEventListener('blur', e => {
+        const active = document.querySelector('.focus');
+        if (active) active.classList.remove('focus');
+    })
+});
+
+// error indicators
