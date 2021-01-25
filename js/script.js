@@ -119,10 +119,11 @@ function paymentValidator() {
     return paymentIsValid
 }
 
+const zipcode = document.getElementById('zip')
+
 function zipcodeValidator() {
-    const zipcode = document.getElementById('zip').value
-    const zipcodeIsValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode)
-    console.log((`Zipcode value is: ${zipcode}`))
+    const zipcodeIsValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zipcode.value)
+    console.log((`Zipcode value is: ${zipcode.value}`))
     return zipcodeIsValid
 }
 
@@ -150,22 +151,57 @@ form.addEventListener('submit', e => {
 
     if (!emailValidator()) {
         console.log('Email validator prevented submission')
+        email.parentElement.classList.add("not-valid")
+        email.parentElement.classList.remove("valid")
+        email.parentElement.lastElementChild.style.display = ""
+    } else if (emailValidator()) {
+        email.parentElement.classList.add("valid")
+        email.parentElement.classList.remove("not-valid")
+        email.parentElement.lastElementChild.style.display = "none"
     }
 
     if (!activitiesValidator()) {
         console.log('Activities validator prevented submission')
+        activities.classList.add("not-valid")
+        activities.classList.remove("valid")
+        activities.lastElementChild.style.display = ""
+    } else if (activitiesValidator()) {
+        activities.classList.add("valid")
+        activities.classList.remove("not-valid")
+        activities.lastElementChild.style.display = "none"
     }
 
     if (!paymentValidator()) {
         console.log('Activities validator prevented submission')
+        creditCard.parentElement.classList.add("not-valid")
+        creditCard.parentElement.classList.remove("valid")
+        creditCard.parentElement.lastElementChild.style.display = ""
+    } else if (paymentValidator()) {
+        creditCard.parentElement.classList.add("valid")
+        creditCard.parentElement.classList.remove("not-valid")
+        creditCard.parentElement.lastElementChild.style.display = "none"
     }
 
     if (!zipcodeValidator()) {
         console.log('Zipcode validator prevented submission')
+        zipcode.parentElement.classList.add("not-valid")
+        zipcode.parentElement.classList.remove("valid")
+        zipcode.parentElement.lastElementChild.style.display = ""
+    } else if (zipcodeValidator()) {
+        zipcode.parentElement.classList.add("valid")
+        zipcode.parentElement.classList.remove("not-valid")
+        zipcode.parentElement.lastElementChild.style.display = "none"
     }
 
     if (!cvvValidator()) {
         console.log('CVV validator prevented submission')
+        cvv.parentElement.classList.add("not-valid")
+        cvv.parentElement.classList.remove("valid")
+        cvv.parentElement.lastElementChild.style.display = ""
+    } else if (cvvValidator()) {
+        cvv.parentElement.classList.add("valid")
+        cvv.parentElement.classList.remove("not-valid")
+        cvv.parentElement.lastElementChild.style.display = "none"
     }
 
     // e.preventDefault()
