@@ -70,7 +70,7 @@ const bitcoin = document.getElementById('bitcoin')
 paypal.style.display = "none"
 bitcoin.style.display = "none"
 
-payment.value = "credit-card"
+// payment.value = "credit-card"
 payment.children[1].selected = true
 payment.addEventListener("change", e => {
     if (e.target.value === 'paypal') {
@@ -138,12 +138,13 @@ function cvvValidator() {
 
 
 form.addEventListener('submit', e => {
-    e.preventDefault()
+    // e.preventDefault()
     if (!nameValidator()) {
         console.log('Name validator prevented submission')
         name.parentElement.classList.add("not-valid")
         name.parentElement.classList.remove("valid")
         name.parentElement.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (nameValidator()) {
         name.parentElement.classList.add("valid")
         name.parentElement.classList.remove("not-valid")
@@ -155,6 +156,7 @@ form.addEventListener('submit', e => {
         email.parentElement.classList.add("not-valid")
         email.parentElement.classList.remove("valid")
         email.parentElement.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (emailValidator()) {
         email.parentElement.classList.add("valid")
         email.parentElement.classList.remove("not-valid")
@@ -166,6 +168,7 @@ form.addEventListener('submit', e => {
         activities.classList.add("not-valid")
         activities.classList.remove("valid")
         activities.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (activitiesValidator()) {
         activities.classList.add("valid")
         activities.classList.remove("not-valid")
@@ -177,6 +180,7 @@ form.addEventListener('submit', e => {
         creditCard.parentElement.classList.add("not-valid")
         creditCard.parentElement.classList.remove("valid")
         creditCard.parentElement.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (paymentValidator()) {
         creditCard.parentElement.classList.add("valid")
         creditCard.parentElement.classList.remove("not-valid")
@@ -188,6 +192,7 @@ form.addEventListener('submit', e => {
         zipcode.parentElement.classList.add("not-valid")
         zipcode.parentElement.classList.remove("valid")
         zipcode.parentElement.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (zipcodeValidator()) {
         zipcode.parentElement.classList.add("valid")
         zipcode.parentElement.classList.remove("not-valid")
@@ -199,6 +204,7 @@ form.addEventListener('submit', e => {
         cvv.parentElement.classList.add("not-valid")
         cvv.parentElement.classList.remove("valid")
         cvv.parentElement.lastElementChild.style.display = ""
+        e.preventDefault()
     } else if (cvvValidator()) {
         cvv.parentElement.classList.add("valid")
         cvv.parentElement.classList.remove("not-valid")
