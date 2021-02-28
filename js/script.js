@@ -115,7 +115,17 @@ function activitiesValidator() {
 }
 
 function paymentValidator() {
-    const paymentIsValid = payment.value === 'credit-card' ? true : false
+    const cardNumber = document.getElementById('cc-num')
+    const cardNumberIsValid = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.test(cardNumber)
+    payment.value === 'credit-card' ? true : false
+
+    let paymentIsValid;
+    if (cardNumberIsValid && payment.value) {
+        paymentIsValid = true;
+    } else {
+        paymentIsValid = false;
+    }
+
     console.log((`Payment section validation test evaluates to ${paymentIsValid}`))
     return paymentIsValid
 }
@@ -179,6 +189,7 @@ form.addEventListener('submit', e => {
         console.log('Activities validator prevented submission')
         creditCard.parentElement.classList.add("not-valid")
         creditCard.parentElement.classList.remove("valid")
+            // the line below was causing the bitcoin option to be displayed on form submission
             // creditCard.parentElement.lastElementChild.style.display = ""
         e.preventDefault()
     } else if (paymentValidator()) {
