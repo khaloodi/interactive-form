@@ -179,7 +179,7 @@ form.addEventListener('submit', e => {
         console.log('Activities validator prevented submission')
         creditCard.parentElement.classList.add("not-valid")
         creditCard.parentElement.classList.remove("valid")
-        creditCard.parentElement.lastElementChild.style.display = ""
+            // creditCard.parentElement.lastElementChild.style.display = ""
         e.preventDefault()
     } else if (paymentValidator()) {
         creditCard.parentElement.classList.add("valid")
