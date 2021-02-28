@@ -19,10 +19,12 @@ jobRole.addEventListener("change", e => {
 const design = document.getElementById("design")
 const color = document.getElementById("shirt-colors")
 color.style.display = "none"
+const select = document.getElementById("color")
 const themeOptions = document.querySelectorAll("select#color option")
 
 design.addEventListener("change", e => {
     color.style.display = "inline-block"
+    select.firstElementChild.remove()
 
     if (e.target.value === "js puns") {
         for (let i = 1; i < themeOptions.length; i++) {
@@ -33,7 +35,6 @@ design.addEventListener("change", e => {
             }
         }
     } else if (e.target.value === "heart js") {
-        console.log(e.target.value)
         for (let j = 1; j < themeOptions.length; j++) {
             if (themeOptions[j].dataset.theme !== "heart js") {
                 themeOptions[j].style.display = "none"
